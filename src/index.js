@@ -3,12 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import 'bootstrap/dist/css/bootstrap.css';
+import DatVeReducer from './BaiTapBookingTicket/Redux/DatVeReducer';
+import {createStore} from 'redux'
+import { Provider } from 'react-redux';
+import rootReducer from './BaiTapBookingTicket/Redux/rootReducer';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+//tạo store
+const store =createStore(rootReducer);
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+ 
+    <Provider store={store}>
+      <App />
+    </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
